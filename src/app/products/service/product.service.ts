@@ -7,8 +7,15 @@ import { Injectable } from '@angular/core';
 export class ProductService {
 
   constructor(private http : HttpClient) { }
-  API = 'https://api.escuelajs.co/api/v1/'
+  API = 'https://fakestoreapi.com/'
   getAllProduct() {
    return this.http.get(this.API+'products')
+  }
+  getAllCategories () {
+    return this.http.get(this.API + 'products/categories')
+  }
+
+  getProductsByCategories( keyword : string){
+    return this.http.get(this.API +'products/category/'+keyword)
   }
 }

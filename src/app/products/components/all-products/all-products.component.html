@@ -1,18 +1,16 @@
 <div class="box mt-5">
   <div class="my-2 w-25">
     <label for="" class="my-1"> Categories</label>
-    <select class="form-control" name="" id="">
-      <option value="1">1</option>
-      <option value="1">2</option>
-      <option value="1">3</option>
-      <option value="1">4</option>
+    <select class="form-control" name="" id="" (change)="filterCategorie($event)">
+      <option value="all" selected> All</option>
+<option [value]="cat" *ngFor="let cat of categories"> {{cat}}</option>
 
     </select>
   </div>
   <div class="row">
     <div class="col-md-3 col-sm-12" *ngFor="let item of products">
       <div class="item">
-        <img src="{{item.images}}" alt="">
+        <img src="{{item.image}}" alt="">
         <div class="body">
           <h5> {{item.title}} </h5>
           <p> {{item.description}} </p>
