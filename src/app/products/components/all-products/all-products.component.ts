@@ -42,13 +42,7 @@ export class AllProductsComponent implements OnInit {
 
   filterCategorie(event : any) {
     let value = event.target.value ;
-    if (value =="all") {
-      this.getAllProducts()
-    }
-    else {
-      this.getProductsCategorie(value)
-    }
-
+     (value =="all") ? this.getAllProducts() : this.getProductsCategorie(value) ;
   }
   getProductsCategorie(keyword : string) {
     this.productService.getProductsByCategories(keyword).subscribe((res :any) => {
