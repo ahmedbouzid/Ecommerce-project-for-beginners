@@ -12,6 +12,8 @@ export class AllProductsComponent implements OnInit {
 
   products :any [] = [] ;
   categories: Categorie[] = []; // Use the Category interface here
+
+  loading : boolean = false ;
   constructor(private productService : ProductService ) {}
   ngOnInit(): void {
     this.getAllProducts() ;
@@ -20,9 +22,10 @@ export class AllProductsComponent implements OnInit {
    }
 
   getAllProducts() {
+    
     this.productService.getAllProduct().subscribe((data : any) => {
       this.products = data ;
-
+      this.loading = false ;
 
     } , error => {
       alert(error.message)
@@ -33,8 +36,10 @@ export class AllProductsComponent implements OnInit {
   }
 
   getAllCategories () {
+    this.loading = true  ;
     this.productService.getAllCategories().subscribe( (data : any) => {
       this.categories = data ;
+      this.loading = false ;
       console.log(this.categories);
 
     })
@@ -45,8 +50,10 @@ export class AllProductsComponent implements OnInit {
      (value =="all") ? this.getAllProducts() : this.getProductsCategorie(value) ;
   }
   getProductsCategorie(keyword : string) {
+    this.loading = true ;
     this.productService.getProductsByCategories(keyword).subscribe((res :any) => {
       this.products = res ;
+      this.loading = false ;
     } )
   }
 }

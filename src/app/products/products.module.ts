@@ -4,6 +4,7 @@ import { AllProductsComponent } from './components/all-products/all-products.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser'
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -15,7 +16,8 @@ import { BrowserModule } from '@angular/platform-browser'
   ],
   imports: [
     CommonModule ,
-    BrowserModule
+    BrowserModule ,
+    SharedModule
   ]
 })
 export class ProductsModule { }
