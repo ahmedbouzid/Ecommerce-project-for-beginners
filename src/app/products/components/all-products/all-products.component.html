@@ -1,11 +1,6 @@
 <div class="box mt-5">
   <div class="my-2 w-25">
-    <label for="" class="my-1"> Categories</label>
-    <select class="form-control" name="" id="" (change)="filterCategorie($event)">
-      <option value="all" selected> All</option>
-<option [value]="cat" *ngFor="let cat of categories"> {{cat}}</option>
-
-    </select>
+<app-select [data]="categories" [title]="'Categories'" (selectedData)="filterCategorie($event)"></app-select>
   </div>
   <div class="row" *ngIf="!loading">
     <div class="col-md-3 col-sm-12" *ngFor="let item of products">

@@ -1,0 +1,7 @@
+
+<label for="" class="my-1"> Categories</label>
+
+<select class="form-control" name="" id="" (change)="detectChanges($event)">
+  <option value="all" selected> All</option>
+  <option [value]="cat" *ngFor="let cat of data"> {{cat}}</option>
+</select>
