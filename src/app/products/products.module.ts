@@ -5,13 +5,15 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser'
 import { SharedModule } from '../shared/shared.module';
+import { ProductComponent } from './components/product/product.component';
 
 
 
 @NgModule({
   declarations: [
     AllProductsComponent,
-    ProductDetailsComponent ,
+    ProductDetailsComponent,
+    ProductComponent ,
 
   ],
   imports: [
