@@ -12,7 +12,7 @@ export class AllProductsComponent implements OnInit {
 
   products :any [] = [] ;
   categories: Categorie[] = []; // Use the Category interface here
-
+  cartProdductsToSaveIntoLocalStorage : any[] = [] ;
   loading : boolean = false ;
   constructor(private productService : ProductService ) {}
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class AllProductsComponent implements OnInit {
    }
 
   getAllProducts() {
-    
+
     this.productService.getAllProduct().subscribe((data : any) => {
       this.products = data ;
       this.loading = false ;
@@ -55,5 +55,24 @@ export class AllProductsComponent implements OnInit {
       this.products = res ;
       this.loading = false ;
     } )
+  }
+  addToCard(event :any) {
+
+    if("cart" in localStorage){
+      this.cartProdductsToSaveIntoLocalStorage = JSON.parse(localStorage.getItem("cart")!)
+
+      let exist = this.cartProdductsToSaveIntoLocalStorage.find(item =>item.item.id == event.item.id) ;
+      if(exist) {
+        alert('Product Already in your card')
+      } else {
+        this.cartProdductsToSaveIntoLocalStorage.push(event) ;
+        localStorage.setItem("cart" , JSON.stringify(this.cartProdductsToSaveIntoLocalStorage)) ;
+      }
+    } else {
+      this.cartProdductsToSaveIntoLocalStorage.push(event) ;
+      localStorage.setItem("cart" , JSON.stringify(this.cartProdductsToSaveIntoLocalStorage))
+    }
+
+
   }
 }
