@@ -18,4 +18,7 @@ export class ProductService {
   getProductsByCategories( keyword : string){
     return this.http.get(this.API +'products/category/'+keyword)
   }
+  getProductById(id : any) {
+    return this.http.get(this.API+'products/'+id)
+  }
 }

@@ -1,1 +1,22 @@
-<p>product-details works!</p>
+
+<div class="w-100">
+  <div class="d-flex w-100 align-items-center" >
+    <div class="w-100">
+
+        <img src="{{oneProduct.image}} " alt="iuiuui">
+      </div>
+      <div class="w-100">
+        <div class="info">
+          <ul class="list-unstyled">
+            <li><strong>Title :</strong> {{oneProduct.title}} </li>
+            <li><strong>Categorie:</strong>{{oneProduct.category}} </li>
+            <li><strong>Description:</strong> {{oneProduct.description}} </li>
+            <li><strong>Rate:</strong> {{oneProduct.rating?.rate}} </li>
+            <li><strong>Count:</strong> {{oneProduct.rating?.count}} </li>
+            <li><strong>Price:</strong> {{oneProduct.price}} </li>
+          </ul>
+        </div>
+      </div>
+
+  </div>
+</div>
