@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../service/product.service';
-import { Categorie } from '../model/categories.interface';
+import { Categorie } from '../../model/categories.interface';
+import { Product } from '../../model/product.interface';
 
 @Component({
   selector: 'app-all-products',
@@ -10,7 +11,7 @@ import { Categorie } from '../model/categories.interface';
 export class AllProductsComponent implements OnInit {
 
 
-  products :any [] = [] ;
+  products :Product [] = [] ;
   categories: Categorie[] = []; // Use the Category interface here
   cartProdductsToSaveIntoLocalStorage : any[] = [] ;
   loading : boolean = false ;
